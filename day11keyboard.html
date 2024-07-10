@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<title>keyboard</title>
+<style>
+    .en{
+        width: 700px;
+        height: 150px;
+    }
+    .row>button{
+        color: rgb(7, 7, 7);
+        font-weight: bolder;
+        font-size: 22px;
+        margin: 1px;
+        border-radius: 5px;
+    }
+    .al{
+       background: orange;
+    }
+    .num{
+        background-color: rgb(165, 42, 42);
+    }
+    .emoji{
+        background-color: palevioletred;
+    }
+    .extra{
+        background-color: rgb(165, 89, 42);
+    }
+    .text{
+        width: 700px;
+
+    }
+</style>
+</head>
+<body>
+    <center>
+        <p style="font-size: 80px; margin: 2px; font-style:oblique;"> SB keyboard</p>
+        <!-- <input class="en" id="di" type="text"> -->
+        <div class="text "> <textarea class="en"name="" id="di"></textarea></div>
+        <div class="container">
+            <!-- first row -->
+            <div class="row">
+                <button class="col num" onclick="appendToDisplay('1')">1</button>
+                <button class="col num" onclick="appendToDisplay('2')">2</button>
+                <button class="col num" onclick="appendToDisplay('3')">3</button>
+                <button class="col num" onclick="appendToDisplay('4')">4</button>
+                <button class="col num" onclick="appendToDisplay('5')">5</button>
+                <button class="col num" onclick="appendToDisplay('6')">6</button>
+                <button class="col num" onclick="appendToDisplay('7')">7</button>
+                <button class="col num" onclick="appendToDisplay('8')">8</button>
+                <button class="col num" onclick="appendToDisplay('9')">9</button>
+                <button class="col num" onclick="appendToDisplay('0')">0</button>
+            </div>
+            <!-- second row -->
+            <div class="row">
+                <button class="col al" onclick="appendToDisplay('q')">q</button>
+                <button class="col al" onclick="appendToDisplay('w')">w</button>
+                <button class="col al" onclick="appendToDisplay('e')">e</button>
+                <button class="col al" onclick="appendToDisplay('r')">r</button>
+                <button class="col al" onclick="appendToDisplay('t')">t</button>
+                <button class="col al" onclick="appendToDisplay('y')">y</button>
+                <button class="col al" onclick="appendToDisplay('u')">u</button>
+                <button class="col al" onclick="appendToDisplay('i')">i</button>
+                <button class="col al" onclick="appendToDisplay('o')">o</button>
+                <button class="col al" onclick="appendToDisplay('p')">p</button>
+            </div>
+            <!-- third row -->
+            <div class="row">
+                <div class="col"></div>
+                <button class="col al" onclick="appendToDisplay('a')">a</button>
+                <button class="col al" onclick="appendToDisplay('s')">s</button>
+                <button class="col al" onclick="appendToDisplay('d')">d</button>
+                <button class="col al" onclick="appendToDisplay('f')">f</button>
+                <button class="col al" onclick="appendToDisplay('g')">g</button>
+                <button class="col al" onclick="appendToDisplay('h')">h</button>
+                <button class="col al" onclick="appendToDisplay('j')">j</button>
+                <button class="col al" onclick="appendToDisplay('k')">k</button>
+                <button class="col al" onclick="appendToDisplay('l')">l</button>
+                <div class="col"></div>
+            </div>
+            <!-- fourth row -->
+            <div class="row">
+                <button class="col extra" onclick="shift()"><div class="bi bi-shift"></div></button>
+                <button class="col al" onclick="appendToDisplay('z')">z</button>
+                <button class="col al" onclick="appendToDisplay('x')">x</button>
+                <button class="col al" onclick="appendToDisplay('c')">c</button>
+                <button class="col al" onclick="appendToDisplay('v')">v</button>
+                <button class="col al" onclick="appendToDisplay('b')">b</button>
+                <button class="col al" onclick="appendToDisplay('n')">n</button>
+                <button class="col al" onclick="appendToDisplay('m')">m</button>
+                <button class="col extra" onclick="del()"><div class="bi bi-backspace"></div></button>
+            </div>
+            <!-- fifth row -->
+             <div class="row">
+                <button class="col-2 extra" onclick="num()">123</button>
+                <button class="col-1 emoji" onclick="emoji()"><div class="bi bi-emoji-heart-eyes"></div></button>
+                <button class="col-1 all" onclick="appendToDisplay('@')">@</button>
+                <button class="col all" onclick="appendToDisplay(' ')"></button>
+                <button class="col-1 all" onclick="appendToDisplay(',')">,</button>
+                <button class="col-1 all" onclick="appendToDisplay('.')">.</button>
+                <button class="col-2 extra" onclick="nextline()">return</button>
+             </div>
+
+             <script>
+
+                var disp=document.getElementById("di")
+                function appendToDisplay(value1){
+                    disp.value+=value1;
+                }
+                function del(){
+                var value=disp.value;
+                disp.value=value.slice(0,-1);
+                }
+
+
+
+                // var isShift=false;
+                // function shift() {
+                // isShift = !isShift;
+                // var buttons = document.querySelectorAll('.al');
+                // buttons.forEach(button => {
+                // var char = button.innerText;
+                // if (isShift) {
+                // button
+                // button.innerText = char.toUpperCase();
+                // button.onclick = () => append(char.toUpperCase());
+                // } else {
+                // button.innerText = char.toLowerCase();
+                // button.onclick = () => append(char.toLowerCase());
+                // }
+                // });
+                // }
+                
+                var isShift = false;
+                function shift() {
+                    isShift = !isShift;
+                    var buttons = document.querySelectorAll('.al');
+
+                    buttons.forEach(button => {
+                        var char = button.innerText;
+                        if (isShift) {
+                            button.innerText = char.toUpperCase();
+                            button.onclick = () => appendToDisplay(char.toUpperCase());
+                        } else {
+                            button.innerText = char.toLowerCase();
+                            button.onclick = () => appendToDisplay(char.toLowerCase());
+                        }
+                   });
+                }
+        function nextline(){
+            disp.value+='\n';
+        }
+            </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>
